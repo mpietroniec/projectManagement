@@ -3,7 +3,7 @@ package com.finalProject.projectManagement.model.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "holder")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,11 +15,13 @@ public class User {
     private String password;
     private String position;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Task task;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Team team;
+//    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private Task task;
+//
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private Team teamId;
+
 
     public Long getId() {
         return id;
@@ -77,19 +79,19 @@ public class User {
         this.position = position;
     }
 
-    public Task getTask() {
-        return task;
-    }
-
-    public void setTask(Task task) {
-        this.task = task;
-    }
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
+//    public Task getTask() {
+//        return task;
+//    }
+//
+//    public void setTask(Task task) {
+//        this.task = task;
+//    }
+//
+//    public Team getTeamId() {
+//        return teamId;
+//    }
+//
+//    public void setTeamId(Team teamId) {
+//        this.teamId = teamId;
+//    }
 }

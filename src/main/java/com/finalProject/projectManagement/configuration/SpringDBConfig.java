@@ -17,8 +17,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-@ComponentScan(basePackages = {"configuration", "service"})
-@EnableJpaRepositories
+@ComponentScan(basePackages = {"com.finalProject.projectManagement.configuration", "com.finalProject.projectManagement.service"})
+@EnableJpaRepositories("com.finalProject.projectManagement.repository")
 @EnableTransactionManagement
 public class SpringDBConfig {
     @Bean
@@ -37,7 +37,7 @@ public class SpringDBConfig {
         LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
         entityManager.setDataSource(getDataSource());
         entityManager.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        entityManager.setPackagesToScan("model");
+        entityManager.setPackagesToScan("com.finalProject.projectManagement.model");
 
         return entityManager;
     }
