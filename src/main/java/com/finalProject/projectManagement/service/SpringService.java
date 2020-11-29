@@ -2,23 +2,24 @@ package com.finalProject.projectManagement.service;
 
 import com.finalProject.projectManagement.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import com.finalProject.projectManagement.model.entity.User;
 
 @Service
 public class SpringService {
-    private com.finalProject.projectManagement.repository.UserRepository userRepository;
+    private UserRepository userRepository;
 
-    public SpringService(com.finalProject.projectManagement.repository.UserRepository userRepository) {
+    public SpringService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     public void saveUser() {
-        com.finalProject.projectManagement.model.entity.User user = new com.finalProject.projectManagement.model.entity.User();
-        user.setFirstname("Marcin");
+        User user = new User();
+        user.setFirstname("abc");
         user.setLastname("Pietroniec");
         user.setMail("abc@abc.com");
         user.setLogin("Marc");
         user.setPassword("1234");
-        user.setPosition("projektant");
+        user.setStatus("projektant");
 
         userRepository.save(user);
     }

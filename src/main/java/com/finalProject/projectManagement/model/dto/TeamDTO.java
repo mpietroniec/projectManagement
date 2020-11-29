@@ -1,18 +1,12 @@
-package com.finalProject.projectManagement.model.entity;
+package com.finalProject.projectManagement.model.dto;
 
-import javax.persistence.*;
+import com.finalProject.projectManagement.model.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "team")
-public class Team {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TeamDTO {
     private Long id;
     private String teamName;
-
-    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<User> users = new ArrayList<>();
 
     public Long getId() {

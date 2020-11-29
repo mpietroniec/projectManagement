@@ -23,28 +23,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
-            .antMatchers(HttpMethod.GET, "/", "/index")
-            .hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+            .antMatchers(HttpMethod.GET, "/", "/index", "/registration")
+                .hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
             .anyRequest().permitAll()
             .and()
-            .csrf().disable()
-            .headers().frameOptions().disable()
+                .csrf().disable()
+                .headers().frameOptions().disable()
             .and()
-            .formLogin()
-            .loginPage("/login")
-            .usernameParameter("login")
-            .passwordParameter("password")
-            .loginProcessingUrl("/login-process")
-            .defaultSuccessUrl("/index")
+                .formLogin()
+                    .loginPage("/login")
+                    .usernameParameter("login")
+                    .passwordParameter("password")
+                    .loginProcessingUrl("/login-process")
+                    .defaultSuccessUrl("/registration")
             .and()
-            .logout()
-            .logoutSuccessUrl("/login");
+                .logout()
+                    .logoutSuccessUrl("/login");
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.inMemoryAuthentication()
                 .withUser("user")
                 .password("{noop}test").roles("USER");
-
     }
 }

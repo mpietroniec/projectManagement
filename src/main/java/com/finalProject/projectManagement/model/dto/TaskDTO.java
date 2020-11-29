@@ -1,18 +1,11 @@
-package com.finalProject.projectManagement.model.entity;
+package com.finalProject.projectManagement.model.dto;
 
-import javax.persistence.*;
+import com.finalProject.projectManagement.model.entity.User;
 
-@Entity
-@Table(name = "task")
-public class Task {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TaskDTO {
     private Long id;
     private String taskName;
-
-    @ManyToOne
     private User holder;
-
 
     public Long getId() {
         return id;

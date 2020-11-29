@@ -1,28 +1,20 @@
-package com.finalProject.projectManagement.model.entity;
+package com.finalProject.projectManagement.model.dto;
 
-import javax.persistence.*;
+import com.finalProject.projectManagement.model.entity.Task;
+import com.finalProject.projectManagement.model.entity.Team;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "holder")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserDTO {
     private Long id;
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private String mail;
     private String login;
     private String password;
     private String status;
-
-    @OneToMany(mappedBy = "holder", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Task> tasks = new ArrayList<>();
-
-    @ManyToOne
     private Team team;
-
 
     public Long getId() {
         return id;
@@ -32,20 +24,20 @@ public class User {
         this.id = id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getMail() {
@@ -76,8 +68,8 @@ public class User {
         return status;
     }
 
-    public void setStatus(String position) {
-        this.status = position;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public List<Task> getTasks() {
