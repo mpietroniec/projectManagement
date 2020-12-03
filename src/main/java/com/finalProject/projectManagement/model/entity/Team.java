@@ -13,7 +13,7 @@ public class Team {
     private String teamName;
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<User> users = new ArrayList<>();
+    private List<Holder> holders = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -31,11 +31,11 @@ public class Team {
         this.teamName = teamName;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<Holder> getUsers() {
+        return holders;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setUsers(List<Holder> holders) {
+        this.holders = holders;
     }
 }

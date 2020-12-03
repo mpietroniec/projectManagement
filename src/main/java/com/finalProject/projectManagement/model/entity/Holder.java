@@ -1,11 +1,14 @@
-package com.finalProject.projectManagement.model.dto;
+package com.finalProject.projectManagement.model.entity;
 
-import com.finalProject.projectManagement.model.entity.Task;
-import com.finalProject.projectManagement.model.entity.Team;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDTO {
+@Entity
+@Table(name = "holder")
+public class Holder {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
@@ -13,31 +16,33 @@ public class UserDTO {
     private String login;
     private String password;
     private String status;
+
+    @OneToMany(mappedBy = "holder", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Task> tasks = new ArrayList<>();
+
+    @ManyToOne
     private Team team;
+
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstName(String firstname) {
+        this.firstName = firstname;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastName(String lastname) {
+        this.lastName = lastname;
     }
 
     public String getMail() {
@@ -68,8 +73,8 @@ public class UserDTO {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(String position) {
+        this.status = position;
     }
 
     public List<Task> getTasks() {

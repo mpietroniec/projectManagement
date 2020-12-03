@@ -1,6 +1,6 @@
 package com.finalProject.projectManagement.controller;
 
-import com.finalProject.projectManagement.model.dto.UserDTO;
+import com.finalProject.projectManagement.model.dto.HolderDTO;
 import com.finalProject.projectManagement.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,13 +19,13 @@ public class UserController {
 
     @GetMapping("/registration")
     public ModelAndView getRegistrationView() {
-        return new ModelAndView("registration", "newUser", new UserDTO());
+        return new ModelAndView("registration", "newUser", new HolderDTO());
     }
 
     @PostMapping("/registration")
-    public String registerNewUser (@ModelAttribute UserDTO userDTO) {
-        System.out.println(userDTO.getFirstName() + " " + userDTO.getLastName());
-        userService.addUser(userDTO);
-        return "login";
+    public String registerNewUser(@ModelAttribute HolderDTO holderDTO) {
+        System.out.println(holderDTO.getFirstName() + " " + holderDTO.getLastName());
+        userService.addUser(holderDTO);
+        return "/home";
     }
 }

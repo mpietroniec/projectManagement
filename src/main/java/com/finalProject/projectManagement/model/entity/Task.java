@@ -11,7 +11,7 @@ public class Task {
     private String taskName;
 
     @ManyToOne
-    private User holder;
+    private Holder holder;
 
 
     public Long getId() {
@@ -30,11 +30,11 @@ public class Task {
         this.taskName = taskName;
     }
 
-    public User getHolder() {
+    public Holder getHolder() {
         return holder;
     }
 
-    public void setHolder(User holder) {
+    public void setHolder(Holder holder) {
         this.holder = holder;
     }
 }

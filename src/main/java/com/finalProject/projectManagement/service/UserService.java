@@ -1,31 +1,35 @@
 package com.finalProject.projectManagement.service;
 
-import com.finalProject.projectManagement.model.dto.UserDTO;
+import com.finalProject.projectManagement.model.dto.HolderDTO;
+import com.finalProject.projectManagement.model.entity.Holder;
 import com.finalProject.projectManagement.repository.UserRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.finalProject.projectManagement.model.entity.User;
 
 
 @Service
 public class UserService {
     private UserRepository userRepository;
     private ModelMapper modelMapper;
+    private PasswordEncoder passwordEncoder;
 
-    public UserService(ModelMapper modelMapper, UserRepository userRepository) {
+
+    public UserService(ModelMapper modelMapper, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.modelMapper = modelMapper;
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public void addUser(UserDTO userDTO){
-        User user = modelMapper.map(userDTO, User.class);
-        user.setFirstname(userDTO.getFirstName());
-        user.setLastname(userDTO.getLastName());
-        user.setMail("abc@abc.com");
-        user.setLogin("Marc");
-        user.setPassword("1234");
-        user.setStatus("projektant");
-        userRepository.save(user);
+    public void addUser(HolderDTO holderDTO){
+        Holder holder = modelMapper.map(holderDTO, Holder.class);
+        holder.setFirstName(holderDTO.getFirstName());
+        holder.setLastName(holderDTO.getLastName());
+        holder.setMail("abc@abc.com");
+        holder.setLogin("Marc");
+        holder.setPassword(passwordEncoder.encode(holderDTO.getPassword()));
+        holder.setStatus("projektant");
+        userRepository.save(holder);
     }
 
 //    public void saveUser() {
