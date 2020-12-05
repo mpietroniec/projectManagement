@@ -26,7 +26,7 @@ public class UserService {
         holder.setFirstName(holderDTO.getFirstName());
         holder.setLastName(holderDTO.getLastName());
         holder.setMail("abc@abc.com");
-        holder.setLogin("Marc");
+        holder.setLogin(holderDTO.getLogin());
         holder.setPassword(passwordEncoder.encode(holderDTO.getPassword()));
         holder.setStatus("projektant");
         userRepository.save(holder);
