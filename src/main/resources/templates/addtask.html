@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>Dodaj zadanie</title>
+</head>
+<body>
+<form th:action="@{/addtask}" method="post" th:object="${newTask}">
+    <p>Nazwa zadania: <input type="text" th:field="*{taskName}"/></p>
+
+    <p><input type="submit" value="Submit"/> </p>
+    <p><input type="reset" value="Reset"/> </p>
+</form>
+
+<form th:action="@{/index}">
+    <button type="submit">Powrót</button>
+</form>
+</body>
+</html>

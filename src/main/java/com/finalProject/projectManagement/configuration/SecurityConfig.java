@@ -1,6 +1,7 @@
 package com.finalProject.projectManagement.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,6 +14,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
+@ComponentScan(basePackages = "com.finalProject.projectManagement.configuration")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -24,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/", "/index")
+                .antMatchers(HttpMethod.GET, "/", "/index", "/taskslist")
                 .hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
                 .anyRequest().permitAll()
                 .and()

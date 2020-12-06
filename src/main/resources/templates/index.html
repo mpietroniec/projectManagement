@@ -5,6 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-<h1 color="red">Witaj!<input disabled th:value="${login2}"></h1>
+<h1 color="red">Witaj!<input disabled th:value="${login}"></h1>
+
+<form action="/addtask">
+    <button class="btn btn-warning" type="submit">Dodaj zadanie</button>
+</form>
+<form action="/tasklist">
+    <button class="btn btn-warning" type="submit">Wyświetl wszystkie zadania</button>
+</form>
+<form action="/createteam">
+    <button class="btn btn-warning" type="submit">Utwórz zespół</button>
+</form>
 </body>
 </html>

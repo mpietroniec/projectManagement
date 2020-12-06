@@ -8,10 +8,14 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "task_name")
     private String taskName;
 
     @ManyToOne
     private Holder holder;
+
+    @ManyToOne
+    private Task task;
 
 
     public Long getId() {
@@ -36,5 +40,13 @@ public class Task {
 
     public void setHolder(Holder holder) {
         this.holder = holder;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
     }
 }

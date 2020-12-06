@@ -13,8 +13,7 @@ public class IndexController {
     public ModelAndView test() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        return new ModelAndView("index", "login2", authentication.getName() + " " + authentication.getAuthorities());
-//    public String test(){return "index";}
+        return new ModelAndView("index", "login", authentication.getName() + " " + authentication.getAuthorities());
     }
 
     @GetMapping("/home")

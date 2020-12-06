@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Utwórz zespół</title>
+</head>
+<body>
+<form th:action="@{/registration}" method="post" th:object="${newUser}">
+    <p>Nazwa grupy <input type="text" placeholder="Imię" th:field="*{firstName}"></p>
+
+    <button class="btn btn-lg btn-success" type="submit">Zarejestruj się</button>
+</form>
+</body>
+</html>

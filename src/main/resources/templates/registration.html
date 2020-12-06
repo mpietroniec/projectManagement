@@ -13,6 +13,7 @@
 <form th:action="@{/registration}" method="post" th:object="${newUser}" >
     <p>Imię: <input type="text" placeholder="Imię" th:field="*{firstName}"></p>
     <p>Nazwisko: <input type="text" placeholder="Nazwisko" th:field="*{lastName}"></p>
+    <p>E-mail: <input type="email" placeholder="e-mail" th:field="*{mail}"></p>
     <p>Stanowisko: <input type="text" placeholder="Stanowisko" th:field="*{status}"></p>
     <p>Login: <input type="text" placeholder="Login" th:field="*{login}"></p>
     <p>Hasło: <input type="password" placeholder="Hasło" th:field="*{password}"></p>
